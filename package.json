@@ -1,0 +1,25 @@
+{
+  "name": "test-rail-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahmutov/test-rail-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bahmutov/test-rail-example/issues"
+  },
+  "homepage": "https://github.com/bahmutov/test-rail-example#readme",
+  "devDependencies": {
+    "cypress": "^8.5.0",
+    "cypress-testrail-reporter": "^1.3.3",
+    "prettier": "^2.4.1"
+  }
+}

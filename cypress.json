@@ -1,0 +1,11 @@
+{
+  "fixturesFolder": false,
+  "supportFile": false,
+  "pluginsFile": false,
+  "reporter": "cypress-testrail-reporter",
+  "reporterOptions": {
+    "host": "https://bahmutov.testrail.com",
+    "projectId": 1,
+    "suiteId": 1
+  }
+}
