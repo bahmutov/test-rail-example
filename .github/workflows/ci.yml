@@ -1,0 +1,16 @@
+name: ci
+on: [push]
+jobs:
+  tests:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress tests 🧪
+        uses: cypress-io/github-action@v2
+        env:
+          CYPRESS_TESTRAIL_REPORTER_USERNAME: ${{ secrets.CYPRESS_TESTRAIL_REPORTER_USERNAME }}
+          CYPRESS_TESTRAIL_REPORTER_PASSWORD: ${{ secrets.CYPRESS_TESTRAIL_REPORTER_PASSWORD }}
