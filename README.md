@@ -1,4 +1,4 @@
-# test-rail-example ![cypress version](https://img.shields.io/badge/cypress-8.5.0-brightgreen) ![cypress-testrail-reporter version](https://img.shields.io/badge/cypress--testrail--reporter-1.3.3-brightgreen) ![cypress-testrail-simple version](https://img.shields.io/badge/cypress--testrail--simple-1.0.0-brightgreen)
+# test-rail-example ![cypress version](https://img.shields.io/badge/cypress-8.5.0-brightgreen) ![cypress-testrail-simple version](https://img.shields.io/badge/cypress--testrail--simple-1.0.0-brightgreen)
 > Trying to use TestRail with Cypress
 
 ## Links
