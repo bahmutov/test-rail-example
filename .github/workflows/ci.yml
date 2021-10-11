@@ -48,8 +48,6 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           install-command: echo "Already installed"
-          record: true
-          group: GitHub Actions
         env:
           # pass the run ID from the previous step via an env variable
           TESTRAIL_RUN_ID: ${{ steps.testRail.outputs.runId }}
