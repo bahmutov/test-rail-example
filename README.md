@@ -1,5 +1,5 @@
 # test-rail-example ![cypress version](https://img.shields.io/badge/cypress-8.5.0-brightgreen) ![cypress-testrail-simple version](https://img.shields.io/badge/cypress--testrail--simple-1.0.0-brightgreen)
-[![CircleCI](https://circleci.com/gh/bahmutov/test-rail-example/tree/main.svg?style=svg)](https://circleci.com/gh/bahmutov/test-rail-example/tree/main)
+[![CircleCI](https://circleci.com/gh/bahmutov/test-rail-example/tree/main.svg?style=svg)](https://circleci.com/gh/bahmutov/test-rail-example/tree/main) [![ci](https://github.com/bahmutov/test-rail-example/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bahmutov/test-rail-example/actions/workflows/ci.yml)
 > Trying to use TestRail with Cypress
 
 ## Links
