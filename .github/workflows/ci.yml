@@ -37,7 +37,7 @@ jobs:
           echo ${runName}
           echo ${runDescription}
 
-          runId=$(node ./bin/testrail-start-run.js "${runName}" "${runDescription}")
+          runId=$(npx testrail-start-run "${runName}" "${runDescription}")
           echo "TestRail run id ${runId}"
           # save the run ID as the output from this step
           echo "::set-output name=runId::${runId}"
@@ -58,4 +58,4 @@ jobs:
         # always close the test run, even if the previous steps have failed
         if: ${{ always() }}
         run: |
-          node ./bin/testrail-close-run.js ${{ steps.testRail.outputs.runId }}
+          npx testrail-close-run ${{ steps.testRail.outputs.runId }}
