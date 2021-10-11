@@ -15,7 +15,7 @@ workflows:
           # and save the run ID in a text file - it will be passed
           # to other CircleCI jobs via workspace together with the other files
           build: |
-            runId=$(node ./bin/testrail-start-run.js \
+            runId=$(npx testrail-start-run \
               "Testing on Circle workflow ${CIRCLE_WORKFLOW_ID}" \
               "Cypress tests on CircleCI ${CIRCLE_BUILD_URL}")
             echo "TestRail run id ${runId}"
@@ -44,4 +44,4 @@ workflows:
             - run:
                 name: Close TestRail Run
                 when: always
-                command: node ./bin/testrail-close-run.js
+                command: npx testrail-close-run
