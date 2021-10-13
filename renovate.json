@@ -10,7 +10,7 @@
   "packageRules": [
     {
       "packagePatterns": ["*"],
-      "excludePackagePatterns": ["cypress", "debug", "arg"],
+      "excludePackagePatterns": ["cypress", "cypress-testrail-simple"],
       "enabled": false
     }
   ]
