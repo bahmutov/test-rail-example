@@ -1,0 +1,66 @@
+# only run the user-tests spec
+# with TestRail expecting its cases
+name: user-tests
+on: [push]
+jobs:
+  tests:
+    runs-on: ubuntu-20.04
+    env:
+      # pass TestRail settings from the project secrets
+      # via environment variables
+      TESTRAIL_HOST: ${{secrets.TESTRAIL_HOST}}
+      TESTRAIL_USERNAME: ${{secrets.TESTRAIL_USERNAME}}
+      TESTRAIL_PASSWORD: ${{secrets.TESTRAIL_PASSWORD}}
+      # the project ID is not that secret
+      TESTRAIL_PROJECTID: 2
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v2
+
+      # Install NPM dependencies, cache them correctly
+      # do not run tests though - we need to add the TestRail run first
+      - name: Install 📦
+        uses: cypress-io/github-action@v2
+        with:
+          runTests: false
+
+      # you can pass GitHub information in the name and description
+      # to include in the TestRail run information
+      # https://docs.github.com/en/actions/learn-github-actions/contexts
+      - name: Start TestRail Run 🏃🏻‍♂️
+        id: testRail
+        run: |
+          commitSubject="${{ github.event.commits[0].message }}"
+          runName="GH Action: user tests ${commitSubject}"
+          runDescription="User tests for commit ${GITHUB_SHA} ${GITHUB_REF}"
+
+          echo ${commitSubject}
+          echo ${runName}
+          echo ${runDescription}
+
+          runId=$(npx testrail-start-run \
+            --name "${runName}" \
+            --description "${runDescription}" \
+            --spec "cypress/integration/user-tests.js" \
+          )
+          echo "TestRail run id ${runId}"
+          # save the run ID as the output from this step
+          echo "::set-output name=runId::${runId}"
+
+      # Now run the Cypress tests, and the cypress-testrail-simple
+      # plugin will automatically add the results to TestRail
+      - name: Cypress tests 🧪
+        uses: cypress-io/github-action@v2
+        with:
+          install-command: echo "Already installed"
+          spec: 'cypress/integration/user-tests.js'
+        env:
+          # pass the run ID from the previous step via an env variable
+          TESTRAIL_RUN_ID: ${{ steps.testRail.outputs.runId }}
+
+      - name: Close TestRail Run 🏁
+        # always close the test run, even if the previous steps have failed
+        if: ${{ always() }}
+        run: |
+          npx testrail-close-run ${{ steps.testRail.outputs.runId }}
