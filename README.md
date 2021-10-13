@@ -3,7 +3,19 @@
 [![CircleCI](https://circleci.com/gh/bahmutov/test-rail-example/tree/main.svg?style=svg)](https://circleci.com/gh/bahmutov/test-rail-example/tree/main) [![ci](https://github.com/bahmutov/test-rail-example/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bahmutov/test-rail-example/actions/workflows/ci.yml) [![renovate-app badge][renovate-badge]][renovate-app]
 > Trying to use TestRail with Cypress
 
-Read the blog post [Cypress And TestRail](https://glebbahmutov.com/blog/cypress-and-testrail/). See the example workflows [.github/workflows/ci.yml](./.github/workflows/ci.yml) and [.circleci/config.yml](./.circleci/config.yml).
+Read the blog post [Cypress And TestRail](https://glebbahmutov.com/blog/cypress-and-testrail/).
+
+## All tests
+
+See the example workflows [.github/workflows/ci.yml](./.github/workflows/ci.yml) and [.circleci/config.yml](./.circleci/config.yml) that run all specs
+
+![A run with all test cases](./images/all-tests.png)
+
+## Specific tests
+
+If you need to run only some tests, use the `--spec` parameter to create the test run. It finds the case IDs from those spec files, and adds a new TestRail run using the case list. See the workflow file [.github/workflows/user-tests.yml](./.github/workflows/user-tests.yml)
+
+![A run with user tests only](./images/user-tests.png)
 
 ## Links
 
