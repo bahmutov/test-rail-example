@@ -19,7 +19,7 @@ jobs:
       # Install NPM dependencies, cache them correctly
       # do not run tests though - we need to add the TestRail run first
       - name: Install 📦
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v7.4.0
         with:
           runTests: false
 
@@ -45,7 +45,7 @@ jobs:
       # Now run the Cypress tests, and the cypress-testrail-simple
       # plugin will automatically add the results to TestRail
       - name: Cypress tests 🧪
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v7.4.0
         with:
           install-command: echo "Already installed"
         env:
